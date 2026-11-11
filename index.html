@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gerard Manyosa i Muñoz — UX Design Manager & Director de Arte</title>
+<meta name="description" content="Portfolio y currículum de Gerard Manyosa i Muñoz: UX Design Manager & IT Project Manager en CELSA GROUP, ex Senior UX Designer en Dow Jones y director de arte editorial. Barcelona.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4efe6; --ink:#1b1a17; --muted:#6b655b; --rule:#d8cfbf;
+    --accent:#d2461f; --accent-ink:#fff; --card:#fbf8f2;
+    --serif:"Fraunces", Georgia, serif;
+    --sans:"IBM Plex Sans", system-ui, sans-serif;
+    --mono:"IBM Plex Mono", ui-monospace, monospace;
+    --w:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:var(--w);margin:0 auto;padding:0 28px}
+
+  /* Nav */
+  header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .mark{font:700 20px/1 var(--serif);text-decoration:none;letter-spacing:-.02em}
+  .mark span{color:var(--accent)}
+  nav a{font:500 13px var(--mono);text-transform:uppercase;letter-spacing:.08em;text-decoration:none;margin-left:22px;color:var(--muted)}
+  nav a:hover{color:var(--ink)}
+
+  /* Hero */
+  .hero{padding:96px 0 72px;border-bottom:1px solid var(--rule)}
+  .kicker{font:500 13px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 22px}
+  .hero h1{font:300 clamp(48px,8.4vw,112px)/.95 var(--serif);letter-spacing:-.035em;margin:0}
+  .hero h1 em{font-style:italic;font-weight:500}
+  .hero .lead{max-width:640px;font-size:21px;line-height:1.5;color:#3a372f;margin:34px 0 0}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border:1.5px solid var(--ink);border-radius:999px;font:500 15px var(--sans);text-decoration:none;transition:.2s}
+  .btn.primary{background:var(--ink);color:var(--paper)}
+  .btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:72px;border-top:1px solid var(--rule)}
+  .stat{padding:22px 18px 0 0}
+  .stat b{display:block;font:500 44px/1 var(--serif);letter-spacing:-.02em}
+  .stat small{font:400 13px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+
+  /* Sections */
+  section{padding:88px 0;border-bottom:1px solid var(--rule)}
+  .sec-head{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:baseline;margin-bottom:44px}
+  .sec-num{font:500 13px var(--mono);color:var(--accent);letter-spacing:.1em}
+  h2{font:300 clamp(36px,5vw,58px)/1 var(--serif);letter-spacing:-.03em;margin:0}
+  .indent{margin-left:260px}
+
+  /* Projects */
+  .projects{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+  .proj{grid-column:span 3;background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:28px;display:flex;flex-direction:column;min-height:260px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+  .proj:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(27,26,23,.35)}
+  .proj.wide{grid-column:span 6;min-height:220px}
+  .proj.third{grid-column:span 2}
+  .proj .tag{font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .proj h3{font:500 28px/1.1 var(--serif);letter-spacing:-.02em;margin:14px 0 12px}
+  .proj p{margin:0;color:#45413a;font-size:16px}
+  .proj .chips{margin-top:auto;padding-top:20px;display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font:400 12px var(--mono);padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted)}
+  .proj .glyph{position:absolute;right:-10px;top:-24px;font:700 140px/1 var(--serif);color:var(--accent);opacity:.08;pointer-events:none}
+
+  /* Timeline */
+  .timeline{list-style:none;margin:0;padding:0}
+  .job{display:grid;grid-template-columns:220px 1fr;gap:40px;padding:28px 0;border-top:1px solid var(--rule)}
+  .job:first-child{border-top:0;padding-top:0}
+  .when{font:500 14px var(--mono);color:var(--muted)}
+  .when .now{display:inline-block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:999px;background:var(--accent);color:var(--accent-ink);letter-spacing:.06em;text-transform:uppercase}
+  .job h3{font:500 24px/1.2 var(--serif);margin:0;letter-spacing:-.01em}
+  .job .org{font-weight:600;font-size:15px;margin:4px 0 10px;color:var(--accent)}
+  .job p,.job li{color:#45413a;font-size:16px}
+  .job ul{margin:8px 0 0;padding-left:18px}
+  details.more{margin-top:8px}
+  details.more summary{cursor:pointer;font:500 13px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;list-style:none}
+  details.more summary::-webkit-details-marker{display:none}
+  details.more summary::before{content:"+ "}
+  details.more[open] summary::before{content:"– "}
+
+  /* Skills */
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .skill-col{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:26px}
+  .skill-col h3{font:500 13px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin:0 0 14px}
+  .skill-col ul{list-style:none;margin:0;padding:0}
+  .skill-col li{padding:8px 0;border-top:1px dashed var(--rule);font-size:15.5px}
+  .skill-col li:first-child{border-top:0}
+
+  /* Education / languages */
+  .edu{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .edu-item{border-left:3px solid var(--accent);padding:4px 0 4px 20px}
+  .edu-item h3{font:500 22px/1.2 var(--serif);margin:0 0 4px}
+  .edu-item p{margin:0;color:var(--muted)}
+  .langs{display:flex;gap:28px;flex-wrap:wrap;margin-top:48px}
+  .lang b{font:500 22px var(--serif);display:block}
+  .lang span{font:400 13px var(--mono);color:var(--muted)}
+
+  /* Contact */
+  .contact{background:var(--ink);color:var(--paper);border:0}
+  .contact h2{font-size:clamp(44px,7vw,92px)}
+  .contact h2 em{color:var(--accent);font-style:italic}
+  .contact .sec-num{color:var(--accent)}
+  .contact p{color:#bdb6a8;max-width:560px;font-size:19px}
+  .contact .btn{border-color:var(--paper);color:var(--paper)}
+  .contact .btn.primary{background:var(--paper);color:var(--ink)}
+  .contact .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+  footer{background:var(--ink);color:#8a8477;font:400 13px var(--mono);padding:24px 0 40px;border-top:1px solid #2e2c27}
+
+  @media (max-width:860px){
+    nav{display:none}
+    .sec-head,.job{grid-template-columns:1fr;gap:10px}
+    .indent{margin-left:0}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .proj,.proj.third,.proj.wide{grid-column:span 6}
+    .skills,.edu{grid-template-columns:1fr}
+    .hero{padding:64px 0 48px}
+    section{padding:64px 0}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="#top">GM<span>.</span></a>
+    <nav aria-label="Secciones">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <p class="kicker">Portfolio · Barcelona</p>
+      <h1>Gerard Manyosa<br><em>i Muñoz</em></h1>
+      <p class="lead">UX Design Manager &amp; IT Project Manager en CELSA GROUP. Más de tres décadas diseñando: de la dirección de arte editorial y la publicidad a productos digitales para Dow Jones y The Wall Street Journal.</p>
+      <div class="hero-meta">
+        <a class="btn primary" href="#proyectos">Ver proyectos ↓</a>
+        <a class="btn" href="https://www.linkedin.com/in/gerard-manyosa-i-mu%C3%B1oz-57990a25/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <div class="stats" role="list">
+        <div class="stat" role="listitem"><b>35+</b><small>años en diseño</small></div>
+        <div class="stat" role="listitem"><b>10</b><small>años en CELSA</small></div>
+        <div class="stat" role="listitem"><b>6</b><small>diseñadores dirigidos</small></div>
+        <div class="stat" role="listitem"><b>3</b><small>pantallas: desktop, tablet, mobile</small></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="proyectos">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">01 — Proyectos</span><h2>Trabajo seleccionado</h2></div>
+      <div class="projects">
+        <article class="proj wide">
+          <span class="glyph" aria-hidden="true">C</span>
+          <span class="tag">CELSA GROUP · 2016 – hoy</span>
+          <h3>Diseño UX y gestión de proyectos IT</h3>
+          <p>Dirección de diseño centrado en el usuario para interfaces, webs y apps del grupo. Prototipado para entornos multidispositivo, evaluación y validación de arquitecturas de información y diseños de interacción, y creación de contenidos digitales, incluido vídeo.</p>
+          <div class="chips"><span class="chip">Design Leadership</span><span class="chip">Project Management</span><span class="chip">Prototipado</span><span class="chip">Arquitectura de información</span></div>
+        </article>
+        <article class="proj">
+          <span class="glyph" aria-hidden="true">F</span>
+          <span class="tag">Dow Jones · 2013 – 2016</span>
+          <h3>Factiva</h3>
+          <p>Diseño de aplicaciones para Factiva Information Business: Factiva Analytics y la app móvil de Factiva.</p>
+          <div class="chips"><span class="chip">Axure</span><span class="chip">Omnigraffle</span><span class="chip">Invision</span></div>
+        </article>
+        <article class="proj">
+          <span class="glyph" aria-hidden="true">N</span>
+          <span class="tag">Dow Jones · 2013 – 2016</span>
+          <h3>Dow Jones Newswires</h3>
+          <p>Diseño del producto de noticias en tiempo real para desktop, tablet y mobile, con test de usuarios y diseño final en Adobe CC.</p>
+          <div class="chips"><span class="chip">Multidispositivo</span><span class="chip">Test de usuarios</span></div>
+        </article>
+        <article class="proj third">
+          <span class="tag">Wall Street Journal</span>
+          <h3>Risk &amp; Compliance</h3>
+          <p>Aplicaciones para la línea Risk &amp; Compliance, proyectos de rediseño de wsj.com y campañas responsive para WSJ Pro.</p>
+        </article>
+        <article class="proj third">
+          <span class="tag">Dow Jones</span>
+          <h3>Guía de estilo para entrada de datos</h3>
+          <p>Guía de estilo y plantillas de página para aplicaciones de entrada de datos y búsqueda avanzada para usuarios profesionales.</p>
+        </article>
+        <article class="proj third">
+          <span class="tag">ETD Comunicación · 2004 – 2012</span>
+          <h3>Portales temáticos y revistas</h3>
+          <p>Dirección de arte de revistas, portales sectoriales, infografías y proyectos audiovisuales para una editorial multimedia.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">02 — Experiencia</span><h2>Trayectoria</h2></div>
+      <ol class="timeline">
+        <li class="job">
+          <div class="when">2016 — hoy<br><span class="now">Actual</span></div>
+          <div>
+            <h3>UX Design Manager &amp; IT Project Manager</h3>
+            <div class="org">CELSA GROUP · Castellbisbal</div>
+            <ul>
+              <li>Gestión de proyectos.</li>
+              <li>Diseño centrado en el usuario de interfaces.</li>
+              <li>Desarrollo de webs y apps.</li>
+              <li>Prototipado para entornos multidispositivo.</li>
+              <li>Evaluación y validación de arquitecturas de información y diseños de interacción.</li>
+              <li>Diseño y creación de contenidos digitales, incluido vídeo.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="job">
+          <div class="when">2013 — 2016</div>
+          <div>
+            <h3>Senior UX Designer</h3>
+            <div class="org">Dow Jones · Barcelona</div>
+            <p>Proyectos mobile y desktop: wireframes (Omnigraffle, Axure), prototipado (Invision), análisis de test de usuarios y diseño final en Adobe CC, para Factiva, Dow Jones Newswires, aplicaciones de datos y The Wall Street Journal.</p>
+          </div>
+        </li>
+        <li class="job">
+          <div class="when">2012 — 2013</div>
+          <div>
+            <h3>Diseñador freelance</h3>
+            <div class="org">Gergrafic</div>
+            <p>Identidad corporativa, diseño editorial, ilustración e infografía, PLV, fotografía y webs (HTML5, CSS3, JavaScript, WordPress, Joomla, PrestaShop).</p>
+          </div>
+        </li>
+        <li class="job">
+          <div class="when">2004 — 2012</div>
+          <div>
+            <h3>Director de arte</h3>
+            <div class="org">ETD Prensa Profesional (ETD Comunicación)</div>
+            <p>Creación y desarrollo de proyectos online y editoriales en su parte gráfica, coordinando un equipo de seis diseñadores.</p>
+            <details class="more"><summary>Más detalle</summary>
+              <ul>
+                <li>Control de producción de revistas: colaboradores, maquetación e impresión.</li>
+                <li>Infografías, titulación y gráficos para proyectos audiovisuales.</li>
+                <li>Portales temáticos para sectores especializados.</li>
+                <li>Webs con Flash, HTML5, jQuery y CSS3; ActionScript avanzado, PHP y MySQL.</li>
+              </ul>
+            </details>
+          </div>
+        </li>
+        <li class="job">
+          <div class="when">1993 — 2004</div>
+          <div>
+            <h3>Maquetador → Director de arte</h3>
+            <div class="org">Ediciones Técnicas Doria</div>
+            <p>Revistas, libros técnicos, vídeos, portales y webs para moda, estética, electrodomésticos y cocina. Director de arte del departamento de maquetación y multimedia desde 1996.</p>
+          </div>
+        </li>
+        <li class="job">
+          <div class="when">1990 — 1993</div>
+          <div>
+            <h3>Diseñador gráfico</h3>
+            <div class="org">Publicidad Continental · Maó, Menorca</div>
+            <p>Cartelismo, ilustración, prensa, folletos, imagen corporativa, señalización y vallas, para el Ayuntamiento de Mahón, el Consell Insular de Menorca y empresas privadas.</p>
+          </div>
+        </li>
+        <li class="job">
+          <div class="when">1987 — 1989</div>
+          <div>
+            <h3>Primeros pasos</h3>
+            <div class="org">Grabados Condal · Revista de Ripollet</div>
+            <p>Dibujante para estampación textil al cargo del sistema infográfico (escáner, tratamiento de imagen, selección de color, fotolitos) y maquetador de una revista local.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">03 — Habilidades</span><h2>Cómo trabajo</h2></div>
+      <div class="skills">
+        <div class="skill-col">
+          <h3>UX &amp; producto</h3>
+          <ul>
+            <li>Diseño centrado en el usuario</li>
+            <li>Wireframes y prototipado: Axure, Omnigraffle, Balsamiq, Invision</li>
+            <li>Arquitectura de información</li>
+            <li>Test de usuarios</li>
+            <li>Metodología Agile</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h3>Dirección y gestión</h3>
+          <ul>
+            <li>Dirección de diseño y de arte</li>
+            <li>Gestión de proyectos IT</li>
+            <li>Liderazgo y motivación de equipos de diseño</li>
+            <li>Trato directo con cliente</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h3>Diseño y desarrollo</h3>
+          <ul>
+            <li>Identidad corporativa y diseño publicitario</li>
+            <li>Diseño editorial, ilustración e infografía</li>
+            <li>Photoshop, Illustrator, InDesign</li>
+            <li>HTML5, CSS3, JavaScript, Bootstrap</li>
+            <li>WordPress, Joomla, PrestaShop</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacion">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">04 — Formación</span><h2>Estudios e idiomas</h2></div>
+      <div class="edu">
+        <div class="edu-item">
+          <h3>Licenciatura en Bellas Artes, especialidad Diseño</h3>
+          <p>Universitat de Barcelona · 1984 – 1989</p>
+        </div>
+        <div class="edu-item">
+          <h3>Máster en Formación del Profesorado</h3>
+          <p>VIU – Universidad Internacional de Valencia · 2012 – 2013 · Diseño y Artes Aplicadas</p>
+        </div>
+      </div>
+      <div class="langs">
+        <div class="lang"><b>Català</b><span>Lengua materna</span></div>
+        <div class="lang"><b>Castellano</b><span>Nativo</span></div>
+        <div class="lang"><b>English</b><span>Advanced</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">05 — Contacto</span><span></span></div>
+      <h2>¿Hablamos de tu <em>próximo proyecto</em>?</h2>
+      <p>Disponible para nuevas oportunidades en Barcelona, en modalidad presencial o híbrida.</p>
+      <div class="hero-meta">
+        <a class="btn primary" href="https://www.linkedin.com/in/gerard-manyosa-i-mu%C3%B1oz-57990a25/" target="_blank" rel="noopener">Escríbeme en LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Gerard Manyosa i Muñoz · Barcelona</div>
+</footer>
+
+</body>
+</html>
