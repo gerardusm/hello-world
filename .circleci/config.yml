@@ -1,0 +1,25 @@
+version: 2.1
+
+# Starter pipeline for gerardusm/hello-world.
+# The repo currently contains only README.md: there is no language runtime,
+# package manager, lockfile, build, test or lint command to run yet.
+# This placeholder job proves the pipeline works; replace its steps with
+# real install/build/test/lint commands (and a cimg/<language>:<major.minor>
+# image plus lockfile-keyed caching) once code is added.
+
+jobs:
+  placeholder:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - checkout
+      - run:
+          name: Placeholder (no build, test or lint commands in repo yet)
+          command: |
+            echo "No project code found yet; nothing to build, test or lint."
+            ls -la
+
+workflows:
+  main:
+    jobs:
+      - placeholder
